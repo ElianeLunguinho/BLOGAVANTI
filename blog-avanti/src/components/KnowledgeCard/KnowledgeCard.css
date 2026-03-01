@@ -1,0 +1,128 @@
+.knowledge-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.knowledge-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.knowledge-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.knowledge-category {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--secondary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.knowledge-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--text-secondary);
+  transition: var(--transition-normal);
+}
+
+.action-btn:hover {
+  color: var(--primary);
+}
+
+.edit-btn:hover {
+  background: rgba(0, 184, 148, 0.15);
+  color: var(--secondary);
+}
+
+.delete-btn:hover {
+  background: rgba(225, 112, 85, 0.15);
+  color: var(--accent);
+}
+
+.knowledge-title {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.3;
+}
+
+.knowledge-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: var(--spacing-md);
+}
+
+.knowledge-meta {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.knowledge-level {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.knowledge-level svg {
+  font-size: 14px;
+}
+
+.knowledge-duration {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.knowledge-duration svg {
+  font-size: 14px;
+}
+
+.knowledge-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border);
+}
+
+.knowledge-provider {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.knowledge-provider strong {
+  color: var(--primary);
+}

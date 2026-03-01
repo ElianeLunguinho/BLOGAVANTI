@@ -1,0 +1,67 @@
+:root {
+  /* Colors - Light Mode (Default) */
+  --primary: #2D3436;
+  --secondary: #00B894;
+  --accent: #E17055;
+  --background: #FAFAFA;
+  --card-bg: #FFFFFF;
+  --text-primary: #2D3436;
+  --text-secondary: #636E72;
+  --border: #DFE6E9;
+  
+  /* Scrollbar - Light */
+  --scrollbar-track: #FAFAFA;
+  --scrollbar-thumb: #636E72;
+  --scrollbar-thumb-hover: #2D3436;
+  
+  /* Typography */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 80px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.4s ease;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --primary: #2D3436;
+  --secondary: #00B894;
+  --accent: #E17055;
+  --background: #1A1A2E;
+  --card-bg: #16213E;
+  --text-primary: #EAEAEA;
+  --text-secondary: #B0B0B0;
+  --border: #2D3A4A;
+  
+  /* Scrollbar - Dark */
+  --scrollbar-track: #1A1A2E;
+  --scrollbar-thumb: #4A5568;
+  --scrollbar-thumb-hover: #00B894;
+  
+  /* Shadows - Darker for dark mode */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.4);
+}
