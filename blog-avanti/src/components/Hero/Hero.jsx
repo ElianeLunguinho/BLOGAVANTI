@@ -1,14 +1,73 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import './Hero.css';
 
+const heroImages = [
+  {
+    url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
+    alt: 'Pessoas aprendendo juntas'
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80',
+    alt: 'Educação online'
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80',
+    alt: 'Trabalho em equipe'
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80',
+    alt: 'Networking profissional'
+  }
+];
+
 const Hero = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="hero">
       <div className="hero-bg">
         <div className="hero-gradient"></div>
         <div className="hero-pattern"></div>
+        {/* Image Carousel */}
+        <div className="hero-carousel">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImage}
+              className="hero-carousel-image"
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <img 
+                src={heroImages[currentImage].url} 
+                alt={heroImages[currentImage].alt}
+              />
+            </motion.div>
+          </AnimatePresence>
+          <div className="hero-carousel-overlay"></div>
+        </div>
+        {/* Carousel Dots */}
+        <div className="hero-carousel-dots">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              className={`carousel-dot ${index === currentImage ? 'active' : ''}`}
+              onClick={() => setCurrentImage(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
       
       <div className="hero-content container">

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import './Form.css';
 
 const Form = ({ fields, onSubmit, buttonText = 'Enviar', loading = false, initialData = null }) => {
@@ -11,6 +12,7 @@ const Form = ({ fields, onSubmit, buttonText = 'Enviar', loading = false, initia
   });
 
   const [errors, setErrors] = useState({});
+  const [focused, setFocused] = useState({});
 
   const validate = () => {
     const newErrors = {};
@@ -37,6 +39,14 @@ const Form = ({ fields, onSubmit, buttonText = 'Enviar', loading = false, initia
     }
   };
 
+  const handleFocus = (fieldName) => {
+    setFocused((prev) => ({ ...prev, [fieldName]: true }));
+  };
+
+  const handleBlur = (fieldName) => {
+    setFocused((prev) => ({ ...prev, [fieldName]: false }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
@@ -50,65 +60,122 @@ const Form = ({ fields, onSubmit, buttonText = 'Enviar', loading = false, initia
     return 'input';
   };
 
+  const hasValue = (fieldName) => formData[fieldName]?.toString().trim() !== '';
+
   return (
     <form className="custom-form" onSubmit={handleSubmit}>
       {fields.map((field) => {
         const inputType = getInputType(field);
-        
+        const isFocused = focused[field.name];
+        const isFilled = hasValue(field.name);
+        const showFloating = isFocused || isFilled;
+
         return (
-          <div key={field.name} className="form-group">
-            <label htmlFor={field.name} className="form-label">
-              {field.label}
-              {field.required && <span className="required">*</span>}
-            </label>
-            
-            {inputType === 'select' ? (
-              <select
-                id={field.name}
-                name={field.name}
-                value={formData[field.name]}
-                onChange={handleChange}
-                className={`form-input ${errors[field.name] ? 'error' : ''}`}
-              >
-                <option value="">Selecione...</option>
-                {field.options?.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            ) : inputType === 'textarea' ? (
-              <textarea
-                id={field.name}
-                name={field.name}
-                value={formData[field.name]}
-                onChange={handleChange}
-                rows={field.rows || 4}
-                className={`form-input ${errors[field.name] ? 'error' : ''}`}
-                placeholder={field.placeholder}
-              />
-            ) : (
-              <input
-                type={field.type || 'text'}
-                id={field.name}
-                name={field.name}
-                value={formData[field.name]}
-                onChange={handleChange}
-                className={`form-input ${errors[field.name] ? 'error' : ''}`}
-                placeholder={field.placeholder}
-              />
-            )}
+          <motion.div 
+            key={field.name} 
+            className={`form-group ${showFloating ? 'floating' : ''}`}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="input-wrapper">
+              {inputType === 'select' ? (
+                <>
+                  <label 
+                    htmlFor={field.name} 
+                    className={`form-label-floating ${showFloating ? 'active' : ''}`}
+                  >
+                    {field.label}
+                    {field.required && <span className="required">*</span>}
+                  </label>
+                  <select
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    onFocus={() => handleFocus(field.name)}
+                    onBlur={() => handleBlur(field.name)}
+                    className={`form-input ${errors[field.name] ? 'error' : ''} ${showFloating ? 'has-value' : ''}`}
+                  >
+                    <option value="">Selecione...</option>
+                    {field.options?.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </>
+              ) : inputType === 'textarea' ? (
+                <>
+                  <label 
+                    htmlFor={field.name} 
+                    className={`form-label-floating ${showFloating ? 'active' : ''}`}
+                  >
+                    {field.label}
+                    {field.required && <span className="required">*</span>}
+                  </label>
+                  <textarea
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    onFocus={() => handleFocus(field.name)}
+                    onBlur={() => handleBlur(field.name)}
+                    rows={field.rows || 4}
+                    className={`form-input ${errors[field.name] ? 'error' : ''} ${showFloating ? 'has-value' : ''}`}
+                    placeholder={field.placeholder}
+                  />
+                </>
+              ) : (
+                <>
+                  <label 
+                    htmlFor={field.name} 
+                    className={`form-label-floating ${showFloating ? 'active' : ''}`}
+                  >
+                    {field.label}
+                    {field.required && <span className="required">*</span>}
+                  </label>
+                  <input
+                    type={field.type || 'text'}
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    onFocus={() => handleFocus(field.name)}
+                    onBlur={() => handleBlur(field.name)}
+                    className={`form-input ${errors[field.name] ? 'error' : ''} ${showFloating ? 'has-value' : ''}`}
+                    placeholder={field.placeholder}
+                  />
+                </>
+              )}
+            </div>
             
             {errors[field.name] && (
-              <span className="form-error">{errors[field.name]}</span>
+              <motion.span 
+                className="form-error"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+              >
+                {errors[field.name]}
+              </motion.span>
             )}
-          </div>
+          </motion.div>
         );
       })}
 
-      <button type="submit" className="form-submit" disabled={loading}>
-        {loading ? 'Enviando...' : buttonText}
-      </button>
+      <motion.button 
+        type="submit" 
+        className="form-submit"
+        disabled={loading}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {loading ? (
+          <span className="loading-spinner"></span>
+        ) : (
+          buttonText
+        )}
+      </motion.button>
     </form>
   );
 };
