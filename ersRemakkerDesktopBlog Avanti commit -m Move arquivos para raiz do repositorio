@@ -1,0 +1,49 @@
+[33mcommit fe63675251bd825212f5d2d4bb8a3d0987550fa3[m
+Author: Eliane Lunguinho Pereira <elianelunguinho123@gmail.com>
+Date:   Sun Mar 1 14:50:08 2026 -0300
+
+    meu primeiro commit
+
+A	blog-avanti/.gitignore
+A	blog-avanti/APRESENTACAO.md
+A	blog-avanti/README.md
+A	blog-avanti/SPEC.md
+A	blog-avanti/eslint.config.js
+A	blog-avanti/index.html
+A	blog-avanti/package-lock.json
+A	blog-avanti/package.json
+A	blog-avanti/public/vite.svg
+A	blog-avanti/src/App.css
+A	blog-avanti/src/App.jsx
+A	blog-avanti/src/assets/react.svg
+A	blog-avanti/src/components/FeatureCard/FeatureCard.css
+A	blog-avanti/src/components/FeatureCard/FeatureCard.jsx
+A	blog-avanti/src/components/Footer/Footer.css
+A	blog-avanti/src/components/Footer/Footer.jsx
+A	blog-avanti/src/components/Form/Form.css
+A	blog-avanti/src/components/Form/Form.jsx
+A	blog-avanti/src/components/Hero/Hero.css
+A	blog-avanti/src/components/Hero/Hero.jsx
+A	blog-avanti/src/components/KnowledgeCard/KnowledgeCard.css
+A	blog-avanti/src/components/KnowledgeCard/KnowledgeCard.jsx
+A	blog-avanti/src/components/Modal/Modal.css
+A	blog-avanti/src/components/Modal/Modal.jsx
+A	blog-avanti/src/components/Navbar/Navbar.css
+A	blog-avanti/src/components/Navbar/Navbar.jsx
+A	blog-avanti/src/components/Toast/Toast.css
+A	blog-avanti/src/components/Toast/Toast.jsx
+A	blog-avanti/src/context/AppContext.jsx
+A	blog-avanti/src/context/ThemeContext.jsx
+A	blog-avanti/src/data/mockData.js
+A	blog-avanti/src/hooks/useScroll.js
+A	blog-avanti/src/index.css
+A	blog-avanti/src/main.jsx
+A	blog-avanti/src/pages/Home/Home.css
+A	blog-avanti/src/pages/Home/Home.jsx
+A	blog-avanti/src/pages/KnowledgeList/KnowledgeList.css
+A	blog-avanti/src/pages/KnowledgeList/KnowledgeList.jsx
+A	blog-avanti/src/pages/Register/Register.css
+A	blog-avanti/src/pages/Register/Register.jsx
+A	blog-avanti/src/styles/global.css
+A	blog-avanti/src/styles/variables.css
+A	blog-avanti/vite.config.js
