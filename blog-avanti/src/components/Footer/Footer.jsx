@@ -41,13 +41,13 @@ const Footer = () => {
             <div className="footer-section">
               <h4>Contato</h4>
               <div className="footer-social">
-                <a href="mailto:contato@blogavanti.com" aria-label="Email">
+                <a href="mailto:elianelunguinho123@gmail.com" aria-label="Email">
                   <FiMail size={20} />
                 </a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/ElianeLunguinho" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <FiGithub size={20} />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://linkedin.com/in/eliane-lunguinho" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <FiLinkedin size={20} />
                 </a>
               </div>
