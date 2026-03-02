@@ -98,6 +98,8 @@ select.form-input {
   background-repeat: no-repeat;
   background-position: right 16px center;
   padding-right: 40px;
+  /* extra space at top for always‑floating label */
+  padding-top: 26px;
 }
 
 /* Textarea Styles */
