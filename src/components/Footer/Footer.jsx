@@ -108,7 +108,7 @@ const Footer = () => {
                   required
                 />
                 <button type="submit" className="newsletter-btn">
-                  Assinar
+                  Enviar
                 </button>
               </div>
             </form>
