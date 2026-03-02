@@ -126,7 +126,7 @@ bash
 npm run dev
 ```
 
-O projeto estará disponível em: **http://localhost:5185/**
+O projeto estará disponível em: **http://localhost:5184/BLOGAVANTI/**
 
 ### Build de Produção
 
