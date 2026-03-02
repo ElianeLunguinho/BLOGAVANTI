@@ -10,6 +10,7 @@ export default defineConfig({
     port: 5184,
     host: true,
     allowedHosts: true,
+    open: '/BLOGAVANTI/',
     hmr: {
       clientPort: 443,
     },

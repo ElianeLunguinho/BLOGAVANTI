@@ -68,7 +68,11 @@ const Form = ({ fields, onSubmit, buttonText = 'Enviar', loading = false, initia
         const inputType = getInputType(field);
         const isFocused = focused[field.name];
         const isFilled = hasValue(field.name);
-        const showFloating = isFocused || isFilled;
+        // select fields should always display the label above to avoid
+        // colliding with the placeholder option text. other inputs use
+        // floating behavior based on focus/value.
+        const showFloating =
+          inputType === 'select' ? true : isFocused || isFilled;
 
         return (
           <motion.div 
