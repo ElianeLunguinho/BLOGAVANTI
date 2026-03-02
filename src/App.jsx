@@ -1,4 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// When the app is served from a subdirectory (like GitHub Pages),
+// the router needs a basename so that paths are resolved correctly.
+// Vite exposes the base in import.meta.env.BASE_URL which matches
+// the `base` field in vite.config.js ("/BLOGAVANTI/").
 import { AppProvider } from './context/AppContext';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar/Navbar';
@@ -13,7 +17,7 @@ function App() {
   return (
     <ThemeProvider>
       <AppProvider>
-        <Router>
+        <Router basename={import.meta.env.BASE_URL}>
           <div className="app">
             <Navbar />
             <main>
