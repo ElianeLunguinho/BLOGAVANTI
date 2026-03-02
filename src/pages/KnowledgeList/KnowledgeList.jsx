@@ -187,7 +187,7 @@ const KnowledgeList = () => {
         ) : (
           <div className="empty-state">
             <span className="empty-icon">🔍</span>
-            <h3>Nenhum conhecimento encontrado</h3>
+            <h3>Nenhuma oferta encontrada.</h3>
             <p>
               {hasActiveFilters
                 ? 'Tente ajustar seus filtros ou adicione uma nova oferta.'
