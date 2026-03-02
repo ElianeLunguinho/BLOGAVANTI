@@ -117,16 +117,22 @@ npm install
 
 ## ▶️ Executando o Projeto
 
-### Modo de Desenvolvimento
+### 🔗 Acessar o Projeto
 
-Para iniciar o servidor de desenvolvimento:
+#### Opção 1: Via GitHub Pages (Produção)
+O projeto está publicado e pode ser acessado diretamente no navegador:
+
+**https://elianelunguinho.github.io/BLOGAVANTI/**
+
+#### Opção 2: Via Terminal (Desenvolvimento)
+Para iniciar o servidor de desenvolvimento local:
 
 ```
 bash
 npm run dev
 ```
 
-O projeto estará disponível em: **http://localhost:5184/BLOGAVANTI/**
+O projeto estará disponível em: **http://localhost:5185/BLOGAVANTI/**
 
 ### Build de Produção
 
@@ -146,6 +152,15 @@ Para visualizar o build de produção localmente:
 ```
 bash
 npm run preview
+```
+
+### Deploy para GitHub Pages
+
+Para fazer o deploy automaticamente para o GitHub Pages:
+
+```
+bash
+npm run deploy
 ```
 
 ---
