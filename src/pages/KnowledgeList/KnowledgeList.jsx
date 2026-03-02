@@ -1,5 +1,7 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import { useSearchParams } from 'react-router-dom';
+import { useDebounce } from '../../hooks/useDebounce';
 import { useApp } from '../../context/AppContext';
 import KnowledgeCard from '../../components/KnowledgeCard/KnowledgeCard';
 import Modal from '../../components/Modal/Modal';
@@ -9,33 +11,36 @@ import './KnowledgeList.css';
 
 const KnowledgeList = () => {
   const { offers, deleteOffer, updateOffer, people } = useApp();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedLevel, setSelectedLevel] = useState('');
+
+  // synchronize filter state with the URL so it can be bookmarked/shared
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [searchTerm, setSearchTerm] = useState(searchParams.get('q') || '');
+  const [selectedCategory, setSelectedCategory] = useState(
+    searchParams.get('category') || ''
+  );
+  const [selectedLevel, setSelectedLevel] = useState(
+    searchParams.get('level') || ''
+  );
+
+  const debouncedSearch = useDebounce(searchTerm, 250);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editingOffer, setEditingOffer] = useState(null);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
 
   const filteredOffers = useMemo(() => {
     return offers.filter((offer) => {
-      // Search filter - title, description, or person name
-      const searchLower = searchTerm.toLowerCase();
+      const searchLower = debouncedSearch.toLowerCase();
       const matchesSearch =
-        !searchTerm ||
+        !debouncedSearch ||
         offer.title.toLowerCase().includes(searchLower) ||
         offer.description.toLowerCase().includes(searchLower) ||
         offer.personName.toLowerCase().includes(searchLower);
-      
-      // Category filter
       const matchesCategory = !selectedCategory || offer.category === selectedCategory;
-      
-      // Level filter
       const matchesLevel = !selectedLevel || offer.level === selectedLevel;
-      
-      // Combined filters
       return matchesSearch && matchesCategory && matchesLevel;
     });
-  }, [offers, searchTerm, selectedCategory, selectedLevel]);
+  }, [offers, debouncedSearch, selectedCategory, selectedLevel]);
 
   const handleEdit = (offer) => {
     setEditingOffer(offer);
@@ -111,9 +116,20 @@ const KnowledgeList = () => {
     setSearchTerm('');
     setSelectedCategory('');
     setSelectedLevel('');
+    // remove query params as well
+    setSearchParams({});
   };
 
   const hasActiveFilters = searchTerm || selectedCategory || selectedLevel;
+
+  // keep URL in sync whenever filters change
+  useEffect(() => {
+    const params = {};
+    if (searchTerm) params.q = searchTerm;
+    if (selectedCategory) params.category = selectedCategory;
+    if (selectedLevel) params.level = selectedLevel;
+    setSearchParams(params);
+  }, [searchTerm, selectedCategory, selectedLevel, setSearchParams]);
 
   return (
     <div className="knowledge-list-page">
@@ -136,6 +152,14 @@ const KnowledgeList = () => {
               className="search-input"
             />
           </div>
+
+          {hasActiveFilters && (
+            <div className="filter-badges">
+              {searchTerm && <span className="badge">Busca: {searchTerm}</span>}
+              {selectedCategory && <span className="badge">Categoria: {selectedCategory}</span>}
+              {selectedLevel && <span className="badge">Nível: {selectedLevel}</span>}
+            </div>
+          )}
         </div>
 
         <div className="filters-row">
