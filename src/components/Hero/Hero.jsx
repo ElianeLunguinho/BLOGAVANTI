@@ -6,28 +6,28 @@ import './Hero.css';
 
 const heroImages = [
 	{
-		url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=90',
-		alt: 'Pessoas aprendendo juntas em grupo'
+		url: 'https://images.unsplash.com/photo-1525921429618-f517086bba3d?w=1920&q=90',
+		alt: 'Grupo de estudantes na biblioteca'
 	},
 	{
-		url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=90',
-		alt: 'Mulher ensinando e apresentando'
+		url: 'https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=1920&q=90',
+		alt: 'Equipe trabalhando com laptops'
 	},
 	{
-		url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=90',
-		alt: 'Equipe colaborativa sorrindo'
+		url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920&q=90',
+		alt: 'Ambiente colaborativo moderno'
+	},
+	{
+		url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=90',
+		alt: 'Equipe conectada pela tecnologia'
+	},
+	{
+		url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=90',
+		alt: 'Pessoas aprendendo juntas'
 	},
 	{
 		url: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&q=90',
 		alt: 'Educação online e tecnologia'
-	},
-	{
-		url: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?w=1920&q=90',
-		alt: 'Grupo de amigos estudando'
-	},
-	{
-		url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=90',
-		alt: 'Pessoas discutindo e aprendendo'
 	}
 ];
 
