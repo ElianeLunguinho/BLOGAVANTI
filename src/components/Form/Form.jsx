@@ -84,11 +84,11 @@ const Form = ({ fields, onSubmit, buttonText = 'Enviar', loading = false, initia
           >
             <div className="input-wrapper">
               {inputType === 'select' ? (
+                /* for selects we don't float the label: keep it above the box
+                   because native controls on mobile often ignore padding and
+                   cause the label to overlap the selected value */
                 <>
-                  <label 
-                    htmlFor={field.name} 
-                    className={`form-label-floating ${showFloating ? 'active' : ''}`}
-                  >
+                  <label htmlFor={field.name} className="form-label">
                     {field.label}
                     {field.required && <span className="required">*</span>}
                   </label>
@@ -99,7 +99,7 @@ const Form = ({ fields, onSubmit, buttonText = 'Enviar', loading = false, initia
                     onChange={handleChange}
                     onFocus={() => handleFocus(field.name)}
                     onBlur={() => handleBlur(field.name)}
-                    className={`form-input ${errors[field.name] ? 'error' : ''} ${showFloating ? 'has-value' : ''}`}
+                    className={`form-input ${errors[field.name] ? 'error' : ''}`}
                   >
                     <option value="">Selecione...</option>
                     {field.options?.map((option) => (

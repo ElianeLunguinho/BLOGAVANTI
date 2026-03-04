@@ -89,7 +89,7 @@ const Register = () => {
   const handlePersonSubmit = async (formData) => {
     setLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 500));
-    addPerson({
+    await addPerson({
       ...formData,
       interests: formData.interests.split(',').map((i) => i.trim()),
     });
@@ -100,7 +100,7 @@ const Register = () => {
   const handleOfferSubmit = async (formData) => {
     setLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 500));
-    addOffer(formData);
+    await addOffer(formData);
     setLoading(false);
     navigate('/conhecimentos');
   };
