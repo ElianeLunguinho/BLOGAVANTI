@@ -34,7 +34,12 @@
   transition: all 0.3s ease;
   background: transparent;
   padding: 0 4px;
-  z-index: 1;
+  z-index: 0;
+}
+
+/* When floating (focused or filled), label should be visible on top of input */
+.form-group.floating .form-label-floating {
+  z-index: 3;
 }
 
 .form-label-floating .required {
@@ -65,6 +70,8 @@ textarea + .form-label-floating.active {
 
 /* Input Styles */
 .form-input {
+  position: relative;
+  z-index: 1;
   width: 100%;
   padding: 18px 16px;
   border: 2px solid var(--border);

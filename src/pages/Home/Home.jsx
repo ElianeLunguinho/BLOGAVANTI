@@ -67,14 +67,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      <footer className="footer">
-        <div className="container">
-          <p className="footer-text">
-            © 2024 Blog Avanti. Todos os direitos reservados.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };

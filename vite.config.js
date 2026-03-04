@@ -5,9 +5,9 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/BLOGAVANTI/',
+  base: '/BLOGAVANTI',
   server: {
-    port: 5184,
+    port: 5192,
     host: true,
     allowedHosts: true,
     open: '/BLOGAVANTI/',
