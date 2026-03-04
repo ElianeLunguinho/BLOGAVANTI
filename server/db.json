@@ -1,0 +1,81 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "name": "Maria Santos",
+      "email": "maria@email.com",
+      "bio": "Desenvolvedora frontend com 5 anos de experiência.",
+      "interests": [
+        "React",
+        "UI/UX",
+        "TypeScript"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "João Silva",
+      "email": "joao@email.com",
+      "bio": "Designer gráfico apaixonado por branding.",
+      "interests": [
+        "Photoshop",
+        "Ilustração",
+        "Branding"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Ana Costa",
+      "email": "ana@email.com",
+      "bio": "Professora de inglês com certificação TESOL.",
+      "interests": [
+        "Inglês",
+        "Espanhol",
+        "Gramática"
+      ]
+    },
+    {
+      "name": "Aurelio Almeida",
+      "email": "aurelio02@gmail.com",
+      "bio": "Ainda não sei",
+      "interests": [
+        "Saúde"
+      ],
+      "id": 4
+    }
+  ],
+  "offers": [
+    {
+      "id": 1,
+      "name": "Maria Santos",
+      "email": "maria@email.com",
+      "bio": "Desenvolvedora frontend com 5 anos de experiência.",
+      "interests": [
+        "React",
+        "UI/UX",
+        "TypeScript"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "João Silva",
+      "email": "joao@email.com",
+      "bio": "Designer gráfico apaixonado por branding.",
+      "interests": [
+        "Photoshop",
+        "Ilustração",
+        "Branding"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Ana Costa",
+      "email": "ana@email.com",
+      "bio": "Professora de inglês com certificação TESOL.",
+      "interests": [
+        "Inglês",
+        "Espanhol",
+        "Gramática"
+      ]
+    }
+  ]
+}

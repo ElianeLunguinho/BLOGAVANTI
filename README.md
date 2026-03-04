@@ -119,16 +119,40 @@ npm install
 
 ### Modo de Desenvolvimento
 
-Para iniciar o servidor de desenvolvimento:
+O frontend foi feito com Vite; o backend (API) utiliza Express/lowdb e roda em outra porta.
 
-```
-bash
-npm run dev
+1. **Instalar dependências do servidor (e frontend se ainda não instalou):**
+
+```bash
+npm install           # instala dependências do frontend + concurrently
+cd server && npm install
+cd ..
 ```
 
-O projeto estará disponível em: **http://localhost:5185/**
+2. **Rodar o back e front:**
+
+- Em terminais separados execute:
+  - `npm --prefix server run dev` (API em `http://localhost:4000`)
+  - `npm run dev` (frontend em `http://localhost:5184/BLOGAVANTI/`)
+
+ou simplesmente use o atalho:
+
+```bash
+npm run start:all
+```
+
+que usa `concurrently` para iniciar ambos juntos.
+
+O frontend automaticamente usará `http://localhost:4000` como `VITE_API_URL`.
+
+> Nota: o README antigo mencionava porta 5185; o valor real vem de Vite. Ajuste se necessário.
 
 ### Build de Produção
+
+\*\*Backend**
+
+O servidor também pode ser empacotado num deploy separado. Para produção, acesse a pasta `server` e execute `npm run build` se utilizar um bundler ou simplesmente `npm start` (não há build específico).
+
 
 Para criar uma versão otimizada para produção:
 
@@ -162,6 +186,18 @@ npm run lint
 ---
 
 ## 📁 Estrutura do Projeto
+
+O repositório agora contém dois sub‑projetos:
+
+```
+blog-avanti/
+├── server/                  # API Node/Express
+│   ├── index.js             # ponto de entrada
+│   ├── package.json
+│   └── db.json              # dados persistidos
+└── src/                     # código do frontend (Vite/React)
+```
+
 
 ```
 blog-avanti/
