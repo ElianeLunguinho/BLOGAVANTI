@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/BLOGAVANTI',
   server: {
-    port: 5192,
+    port: 5185,
     host: true,
     allowedHosts: true,
     open: '/BLOGAVANTI/',
